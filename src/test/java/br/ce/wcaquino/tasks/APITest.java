@@ -1,9 +1,9 @@
 package br.ce.wcaquino.tasks;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import io.restassured.RestAssured;
+import org.hamcrest.CoreMatchers;
 
 public class APITest {
 
