@@ -44,6 +44,23 @@ public class APITest {
                 .statusCode(400)
                 .body("message", CoreMatchers.is("Fill the task description"));
     }
-    
+
+    @Test
+    public void deveRemoverTarefaComSucesso() {
+        Integer id = RestAssured.given()
+        .body("{\"task\": \"Tarefa de REMOCAO\", \"dueDate\": \"2027-04-30\"}")
+        .contentType("application/json")
+        .when()
+        .post("/todo")
+        .then()
+        .statusCode(201)
+        .extract().path("id");
+
+        RestAssured.given()
+        .when()
+        .delete("/todo/" + id)
+        .then()
+        .statusCode(204);
+    }
 }
 
